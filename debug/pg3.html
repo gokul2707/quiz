@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="SHORTCUT ICON" href="https://cdn-icons-png.flaticon.com/512/5741/5741333.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.0" />
+<link rel="dns-prefetch" href="https://clients1.google.com"><link rel="dns-prefetch" href="https://static.javatpoint.com"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net"><link rel="dns-prefetch" href="https://www.google.com"><link rel="dns-prefetch" href="https://feedify.net">
+<link rel="stylesheet" href="pg1.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<title>Java Tricky Programs | Tricky Java Interview Questions - JavaTpoint</title>
+<script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	const ques1 = document.getElementById('question1');
+        const ques2 = document.getElementById('question2');
+        const ques3 = document.getElementById('question3');
+        const ques4 = document.getElementById('question4');
+        const ques5 = document.getElementById('question5');
+        const c1 = document.getElementById('code1');
+        const c2 = document.getElementById('code2');
+        const c3 = document.getElementById('code3');
+        const c4 = document.getElementById('code4');
+        const c5 = document.getElementById('code5');
+
+        // This variable stores all the data.
+        let data = 
+            '\r question 1: ' + ' \r\n' + ' \r\n' + ' \r\n'  + c1.value + ' \r\n' + ' \r\n' + ' \r\n' + 'ANSWER:-' + ' \r\n' + ' \r\n' + ' \r\n' + ques1.value + ' \r\n ' + ' \r\n' + ' \r\n' + ' \r\n' + 
+            'question 2: ' + ' \r\n' + ' \r\n' + ' \r\n' + c2.value + ' \r\n' + ' \r\n' + ' \r\n' + 'ANSWER:-' + ' \r\n' + ' \r\n' + ' \r\n' + ques2.value + ' \r\n ' + ' \r\n' + ' \r\n' + ' \r\n' +
+            'question 3: ' + ' \r\n' + ' \r\n' + ' \r\n' + c3.value + ' \r\n' + ' \r\n' + ' \r\n' + 'ANSWER:-' + ' \r\n' + ' \r\n' + ' \r\n' + ques3.value + ' \r\n ' + ' \r\n' + ' \r\n' + ' \r\n' + 
+            'question 4: ' + ' \r\n' + ' \r\n' + ' \r\n' + c4.value + ' \r\n' + ' \r\n' + ' \r\n' + 'ANSWER:-' + ' \r\n' + ' \r\n' + ' \r\n' + ques4.value + ' \r\n ' + ' \r\n' + ' \r\n' + ' \r\n' + 
+            'question 5: ' + ' \r\n' + ' \r\n' + ' \r\n' + c5.value + ' \r\n' + ' \r\n' + ' \r\n' + 'ANSWER:-' + ' \r\n' + ' \r\n' + ' \r\n' + ques5.value;
+            // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'team 1.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <div class="otp-countdown"  id="timer-countdown">30:05</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    
+    
+<div id="city">
+    <table>
+    <tr><td>
+        <p class="pq">1) Find error(s) in the following code (if any) and rewrite code.</p>
+    <div class="codeblock"><textarea id="code1" name="code" class="java">
+        import java.io.FileNotFoundException; 
+        import java.io.IOException; 
+        
+        public class ExceptionInterviewQuestion_01 { 
+            public static void main(String[] args) { 
+                try { 
+                    multiple(); 
+                } catch (FileNotFoundException | IOException ex) { 
+                    e.printStackTrace(); 
+                } 
+            } 
+            public static void multiple() throws IOException, FileNotFoundException { 
+                System.out.println("Inside multiple"); 
+            } 
+        }
+    </textarea>
+    <textarea type="text" id="question1" placeholder="Enter your code" rows="10" cols="100"></textarea>
+    
+    <hr />
+    <p class="pq">2) Find error(s) in the following code (if any) and rewrite code.</p>
+    <div class="codeblock"><textarea name="code" id="code2" class="java">
+        import java.io.IOException;
+        import javax.servlet.ServletException;
+        import javax.servlet.annotation.WebServlet;
+        import javax.servlet.http.HttpServlet;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
+        
+        @WebServlet("/MyServlet")
+        public class MyServlet extends HttpServlet {
+            private static final long serialVersionUID = 1L;
+        
+            protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                // error - response is not set to UTF-8
+                response.setContentType("text/html");
+                response.getWriter().println("<h1>Hello World!</h1>");
+            }
+        }
+    </textarea>
+    <textarea type="text" id="question2" placeholder="Enter your code" rows="10" cols="100"></textarea>
+    
+    <hr />
+    <p class="pq">3) Find error(s) in the following code (if any) and rewrite code.</p>
+    <div class="codeblock"><textarea name="code" id="code3" class="java">
+        class Animal {
+            void eat() {
+               System.out.println("eating");
+            }
+         }
+         class Dog extends Animal {
+            void bark() {
+               System.out.println("barking");
+            }
+            void eat() {  // error: cannot override eat() in Animal
+               System.out.println("dog eating");
+            }
+         }
+    </textarea>
+    <textarea type="text" id="question3" placeholder="Enter your code" rows="10" cols="100"></textarea>
+    
+    <hr />
+    <p class="pq">4) Find error(s) in the following code (if any) and rewrite code.</p>
+    <div class="codeblock"><textarea name="code" id="code4" class="java">
+        root = tk.Tk()
+root.title("Example GUI")
+
+label = tk.Label(root, text="Hello, World!")
+label.pack()
+
+button = tk.Button(root, text="Exit", command=root.quit)
+button.pack()
+
+root.mainloop()
+    </textarea>
+    <textarea type="text" id="question4" placeholder="Enter your code" rows="10" cols="100"></textarea>
+    
+    <hr />
+    <p class="pq">5) Find error(s) in the following code (if any) and rewrite code.</p>
+    <div class="codeblock"><textarea name="code" id="code5" class="java">
+        def divide(a, b):
+        return a / b
+    
+    print(divide(5, 2))
+    print(divide(5, 0))
+    </textarea>
+    <textarea type="text" id="question5" placeholder="Enter your code" rows="10" cols="100"></textarea>
+    <div>
+        <input type="button" id="bt" class="submit" value="Submit" onclick="saveFile()" />
+    </div>
+    <hr />
+    
+   
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script>
+<script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+<script src="pg1.js"></script>
+</body>
+</html>
